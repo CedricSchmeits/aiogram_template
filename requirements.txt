@@ -1,0 +1,6 @@
+aiogram
+asyncclick
+environs
+gino
+loguru
+sqlalchemy
