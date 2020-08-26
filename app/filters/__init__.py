@@ -1,10 +1,10 @@
 from aiogram import Dispatcher
 from loguru import logger
 
+from .is_reply import IsReplyFilter
+
 
 async def setup(dispatcher: Dispatcher):
-    logger.info("Configure filters...")
-    from .is_reply import IsReplyFilter
 
     text_messages = [
         dispatcher.message_handlers,
