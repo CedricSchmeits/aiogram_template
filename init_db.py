@@ -26,6 +26,8 @@ async def cli(drop: bool = False, add_admins: bool = False):
             await User.create(id=int(admin_id), is_superuser=True)
             logger.debug(f'Administrator {admin_id} was added to the table')
 
+    await db.pop_bind().close()
+
 
 if __name__ == "__main__":
     cli(_anyio_backend='asyncio')
