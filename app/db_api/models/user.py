@@ -1,6 +1,5 @@
 from __future__ import annotations
-
-from sqlalchemy.sql import expression
+from sqlalchemy.sql import expression, Select
 
 from app.db_api.database import BaseModel, TimedBaseModel, db
 
@@ -9,8 +8,8 @@ class User(TimedBaseModel):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True, index=True, unique=True)
-
     is_superuser = db.Column(db.Boolean, server_default=expression.false())
+    query: Select
 
 
 class UserRelatedModel(BaseModel):
