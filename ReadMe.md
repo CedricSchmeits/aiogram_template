@@ -1,8 +1,8 @@
-# Bot template by [Forzend](https://t.me/Forzend)
+# Bot written using [Forzend's](https://t.me/Forzend) template
 
 ## initialize database
 
-#### First start
+
 `$ python3 init_db.py`
 
 ##### Arguments
