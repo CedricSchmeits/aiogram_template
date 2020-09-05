@@ -7,6 +7,16 @@ from aiogram.dispatcher.middlewares import BaseMiddleware
 from aiogram.utils.exceptions import Throttled
 
 
+def rate_limit(limit: int, key=None):
+    def decorator(func):
+        setattr(func, 'throttling_rate_limit', limit)
+        if key:
+            setattr(func, 'throttling_key', key)
+        return func
+
+    return decorator
+
+
 class ThrottlingMiddleware(BaseMiddleware):
     """
     Simple middleware
@@ -22,6 +32,7 @@ class ThrottlingMiddleware(BaseMiddleware):
         This handler is called when dispatcher receives a message
 
         :param message:
+        :param data:
         """
         # Get current handler
         handler = current_handler.get()

@@ -16,7 +16,7 @@ async def on_startup(dispatcher: Dispatcher):
     await filters.setup(dispatcher)
     from app import handlers
     await utils.setup_default_commands(dispatcher)
-    await utils.notify_admins(dispatcher)
+    await utils.notify_admins()
 
 
 async def on_shutdown(dispatcher: Dispatcher):
