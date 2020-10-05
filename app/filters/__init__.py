@@ -1,18 +1,17 @@
-from aiogram import Dispatcher
+from app.loader import dp
 from loguru import logger
 
 from .is_reply import IsReplyFilter
 
 
-async def setup(dispatcher: Dispatcher):
-
+if __name__ == "app.filters":
     text_messages = [
-        dispatcher.message_handlers,
-        dispatcher.edited_message_handlers,
-        dispatcher.channel_post_handlers,
-        dispatcher.edited_channel_post_handlers,
+        dp.message_handlers,
+        dp.edited_message_handlers,
+        dp.channel_post_handlers,
+        dp.edited_channel_post_handlers,
     ]
 
-    dispatcher.filters_factory.bind(IsReplyFilter, event_handlers=text_messages)
+    dp.filters_factory.bind(IsReplyFilter, event_handlers=text_messages)
 
     logger.info('Filters are successfully configured')

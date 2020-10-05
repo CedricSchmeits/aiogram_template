@@ -4,24 +4,27 @@ from aiogram import Dispatcher
 from aiogram.utils import executor
 from gino import UninitializedError
 
-from app import utils, middlewares, filters, config
+from app import utils, config
 from app.loader import dp
-from app.db_api.database import connect, db
+
+# The configuration of the modules using import
+from app import middlewares
+from app import filters
+from app import handlers
+
+from app.db_api import database
 
 
 async def on_startup(dispatcher: Dispatcher):
     await utils.setup_logger()
-    await connect()
-    await middlewares.setup(dispatcher)
-    await filters.setup(dispatcher)
-    from app import handlers
+    await database.connect()
     await utils.setup_default_commands(dispatcher)
     await utils.notify_admins()
 
 
 async def on_shutdown(dispatcher: Dispatcher):
     with suppress(UninitializedError):
-        await db.pop_bind().close()
+        await database.db.pop_bind().close()
 
 
 if __name__ == '__main__':
