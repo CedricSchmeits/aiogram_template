@@ -8,9 +8,7 @@ from app import utils, config
 from app.loader import dp
 
 # The configuration of the modules using import
-from app import middlewares
-from app import filters
-from app import handlers
+from app import middlewares, filters, handlers
 
 from app.db_api import database
 
