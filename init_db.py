@@ -1,5 +1,5 @@
-import asyncclick as click
-
+import argparse
+import asyncio
 from app import config
 from app.db_api.database import connect
 from app.db_api.models import User
@@ -7,20 +7,28 @@ from app.loader import db
 from loguru import logger
 
 
-@click.command()
-@click.option('-d', '--drop', is_flag=True, help='Delete the created table')
-@click.option('-a', '--add-admins', is_flag=True, help="Add the admin_id's from environment variable")
-async def cli(drop: bool = False, add_admins: bool = False):
-    await connect()
+def create_parser():
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument('-a', '--add-admins', action='store_const', const=True, default=False,
+                            help='Delete the created table')
+    arg_parser.add_argument('-d', '--drop-tables', action='store_const', const=True, default=False,
+                            help="Add the admin_id's from environment variable")
+    return arg_parser
 
-    if drop:
+
+async def cli():
+    parser = create_parser()
+    namespace = parser.parse_args()
+
+    await connect()
+    if namespace.drop_tables:
         logger.warning('Dropping tables')
         await db.gino.drop_all()
 
     logger.info('Creating tables')
     await db.gino.create_all()
 
-    if add_admins:
+    if namespace.add_admins:
         logger.info('Adding administrators')
         for admin_id in config.ADMINS_ID:
             await User.create(id=int(admin_id), is_superuser=True)
@@ -30,4 +38,5 @@ async def cli(drop: bool = False, add_admins: bool = False):
 
 
 if __name__ == "__main__":
-    cli(_anyio_backend='asyncio')
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(cli())
