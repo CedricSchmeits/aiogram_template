@@ -1,8 +1,5 @@
-from contextlib import suppress
-
 from aiogram import Dispatcher
 from aiogram.utils import executor
-from gino import UninitializedError
 
 from app import utils, config
 from app.loader import dp
@@ -21,8 +18,7 @@ async def on_startup(dispatcher: Dispatcher):
 
 
 async def on_shutdown(dispatcher: Dispatcher):
-    with suppress(UninitializedError):
-        await database.db.pop_bind().close()
+    await database.close_connection()
 
 
 if __name__ == '__main__':

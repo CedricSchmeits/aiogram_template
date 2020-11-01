@@ -1,6 +1,7 @@
+from contextlib import suppress
 from typing import List
 
-from gino import Gino
+from gino import Gino, UninitializedError
 import sqlalchemy as sa
 from loguru import logger
 from sqlalchemy import Column, DateTime
@@ -38,3 +39,9 @@ class TimedBaseModel(BaseModel):
 async def connect():
     await db.set_bind(config.POSTGRES_URI)
     logger.info('PostgreSQL is successfully configured')
+
+
+async def close_connection():
+    with suppress(UninitializedError):
+        logger.info('Closing a database connection')
+        await db.pop_bind().close()
