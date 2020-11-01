@@ -1,7 +1,6 @@
-aiogram
-aioredis
-asyncclick
-environs
-gino
-loguru
-sqlalchemy
+aiogram==2.10.1
+aioredis==1.3.1
+environs==9.0.0
+gino==1.0.1
+loguru==0.5.3
+sqlalchemy==1.3.20
