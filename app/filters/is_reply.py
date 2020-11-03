@@ -7,6 +7,7 @@ from aiogram.dispatcher.filters import BoundFilter
 @dataclass
 class IsReplyFilter(BoundFilter):
     """
+    EXAMPLE
     Filtered message should be reply to another message
     """
 

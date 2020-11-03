@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.dispatcher.filters import CommandStart
 
-from app.loader import dp
+from app.misc import dp
 from app.middlewares.throttling import rate_limit
 
 

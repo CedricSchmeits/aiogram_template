@@ -1,14 +1,13 @@
 from contextlib import suppress
 from typing import List
 
-from gino import Gino, UninitializedError
+from gino import UninitializedError
 import sqlalchemy as sa
 from loguru import logger
 from sqlalchemy import Column, DateTime
 
 from app import config
-
-db = Gino()
+from app.misc import db
 
 
 class BaseModel(db.Model):

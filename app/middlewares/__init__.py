@@ -1,4 +1,4 @@
-from app.loader import dp
+from app.misc import dp
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from loguru import logger
 

@@ -1,4 +1,4 @@
-from app.loader import dp
+from app.misc import dp
 from loguru import logger
 
 from .is_reply import IsReplyFilter

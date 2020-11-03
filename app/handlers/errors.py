@@ -1,6 +1,6 @@
 from loguru import logger
 
-from app.loader import dp
+from app.misc import dp
 
 
 @dp.errors_handler()

@@ -2,23 +2,23 @@ from aiogram import Dispatcher
 from aiogram.utils import executor
 
 from app import utils, config
-from app.loader import dp
+from app.misc import dp
 
 # The configuration of the modules using import
 from app import middlewares, filters, handlers
 
-from app.db_api import database
+from app.models import base
 
 
 async def on_startup(dispatcher: Dispatcher):
     await utils.setup_logger()
-    await database.connect()
+    await base.connect()
     await utils.setup_default_commands(dispatcher)
     await utils.notify_admins()
 
 
 async def on_shutdown(dispatcher: Dispatcher):
-    await database.close_connection()
+    await base.close_connection()
 
 
 if __name__ == '__main__':

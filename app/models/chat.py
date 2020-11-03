@@ -1,4 +1,5 @@
-from app.db_api.database import BaseModel, TimedBaseModel, db
+from app.models.base import BaseModel, TimedBaseModel
+from app.misc import db
 
 
 class Chat(TimedBaseModel):

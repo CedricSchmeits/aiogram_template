@@ -2,7 +2,7 @@ from aiogram.utils import exceptions
 from loguru import logger
 from asyncio import sleep
 
-from app.loader import bot
+from app.misc import bot
 
 
 async def send_message(user_id: int, text: str, disable_notification: bool = False) -> bool:

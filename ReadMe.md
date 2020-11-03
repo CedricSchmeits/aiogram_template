@@ -1,22 +1,21 @@
 # Bot written using [Forzend's](https://t.me/Forzend) template
 
-## initialize database
+## Setting up
 
+### Poetry
 
-`$ python3 init_db.py`
+**_Make sure you have installed [poetry](https://python-poetry.org/docs/)._**
+1. Rename `.env.dist` to `.env` and fill in your Redis, Postgres credentials and a bot token.
 
-##### Arguments
-`-a, --add-admins` – Add the admin_id's from environment 
-variable
-
-`-d, --drop` – Delete the created table
-
-## Environment
-
-Environment variables in .env
-
-Project config in app/config.py
-
-## Run
-Entry-point is app/\_\_main__.py 
-(Can be executed as python -m app)
+2. Install requirements
+   ```cmd
+   $ poetry update && poetry install
+   ```
+3. Apply alembic migrations
+   ```cmd
+   $ poetry run alembic upgrade head
+   ```
+4. Run the script with poetry
+   ```cmd
+   $ poetry run python app
+   ```
