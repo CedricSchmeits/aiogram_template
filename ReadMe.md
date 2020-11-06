@@ -5,6 +5,7 @@
 ### Poetry
 
 **_Make sure you have installed [poetry](https://python-poetry.org/docs/)._**
+
 1. Rename `.env.dist` to `.env` and fill in your Redis, Postgres credentials and a bot token.
 
 2. Install requirements
@@ -26,7 +27,7 @@
 
 1. Rename `.env.dist` to `.env` and fill in your Redis, Postgres credentials and a bot token.
 
-2. Run 
-```cmd
-sudo docker-compose up -d
-```
+2. Run the project
+    ```cmd
+    sudo docker-compose up -d
+    ```
