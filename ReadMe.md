@@ -19,3 +19,14 @@
    ```cmd
    $ poetry run python app
    ```
+
+### Docker
+
+**_Make sure you have installed [docker](https://docs.docker.com/) & [docker-compose](https://docs.docker.com/compose/)_**
+
+1. Rename `.env.dist` to `.env` and fill in your Redis, Postgres credentials and a bot token.
+
+2. Run 
+```cmd
+sudo docker-compose up -d
+```

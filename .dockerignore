@@ -1,0 +1,17 @@
+# Project
+.idea/
+pyproject.toml
+poetry.lock
+.*ignore
+README.md
+
+# Cache
+*.py[cod]
+__pycache__
+
+# Texts
+*.mo
+
+# Docker
+docker-compose*.yml
+Dockerfile

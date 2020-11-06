@@ -14,7 +14,6 @@ ADMINS_ID = env.list("ADMINS_ID")
 
 REDIS_HOST = env.str("REDIS_HOST", default="localhost")
 REDIS_PORT = env.int("REDIS_PORT", default=6379)
-REDIS_PASSWORD = env.str("REDIS_PASSWORD")
 
 POSTGRES_HOST = env.str("POSTGRES_HOST", default="localhost")
 POSTGRES_PORT = env.int("POSTGRES_PORT", default=5432)
