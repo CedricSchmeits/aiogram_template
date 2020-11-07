@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  postgres:
-    container_name: postgres
-    image: postgres
+  db:
+    container_name: database
+    image: postgres:alpine
     restart: on-failure
     environment:
       POSTGRES_USER: $POSTGRES_USER
@@ -16,7 +16,7 @@ services:
 
   redis:
     container_name: redis
-    image: redis
+    image: redis:alpine
     restart: on-failure
     volumes:
       - /redis-data:/var/lib/redis
@@ -30,6 +30,9 @@ services:
     restart: on-failure
     env_file:
       - .env
+    environment:
+      REDIS_HOST: redis
+      POSTGRES_HOST: db
     depends_on:
-      - postgres
+      - db
       - redis
