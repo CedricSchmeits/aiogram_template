@@ -21,6 +21,7 @@ class InterceptHandler(logging.Handler):
 
 
 async def setup_logger():
-    logging.basicConfig(handlers=[InterceptHandler()], level=0)
-    logger.disable("sqlalchemy.engine.base")
+    logging.basicConfig(handlers=[InterceptHandler()], level=logging.DEBUG)
+    logger.disable("sqlalchemy.engine")
+    logger.disable("aiogram.bot.api")
     logger.info('Logging is successfully configured')

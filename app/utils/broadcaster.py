@@ -21,15 +21,15 @@ class Broadcast:
         try:
             await bot.send_message(user_id, self.text, disable_notification=self.disable_notification)
         except exceptions.BotBlocked:
-            logger.error(f"Target [ID:{user_id}]: blocked by user")
+            logger.debug(f"Target [ID:{user_id}]: blocked by user")
         except exceptions.ChatNotFound:
-            logger.error(f"Target [ID:{user_id}]: invalid user ID")
+            logger.debug(f"Target [ID:{user_id}]: invalid user ID")
         except exceptions.RetryAfter as e:
-            logger.error(f"Target [ID:{user_id}]: Flood limit is exceeded. Sleep {e.timeout} seconds.")
+            logger.debug(f"Target [ID:{user_id}]: Flood limit is exceeded. Sleep {e.timeout} seconds.")
             await sleep(e.timeout)
             return await self.send_message(user_id)  # Recursive call
         except exceptions.UserDeactivated:
-            logger.error(f"Target [ID:{user_id}]: user is deactivated")
+            logger.debug(f"Target [ID:{user_id}]: user is deactivated")
         except exceptions.TelegramAPIError:
             logger.exception(f"Target [ID:{user_id}]: failed")
         else:
