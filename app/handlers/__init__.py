@@ -1,2 +1,2 @@
-from .errors import errors_handler
+from .errors import *
 from .private import *
