@@ -7,5 +7,5 @@ from app.middlewares.throttling import rate_limit
 
 @rate_limit(30, 'command_start')
 @dp.message_handler(CommandStart())
-async def process_start(msg: types.Message):
+async def command_start_handler(msg: types.Message):
     await msg.answer(f'Hello, {msg.from_user.full_name}!')

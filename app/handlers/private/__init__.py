@@ -1,1 +1,1 @@
-from .start import process_start
+from .start import command_start_handler
