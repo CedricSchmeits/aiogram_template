@@ -1,4 +1,5 @@
 import logging
+from typing import Union
 
 from loguru import logger
 
@@ -20,8 +21,8 @@ class InterceptHandler(logging.Handler):
         logger.opt(depth=depth, exception=record.exc_info).log(level, record.getMessage())
 
 
-async def setup_logger():
-    logging.basicConfig(handlers=[InterceptHandler()], level=logging.DEBUG)
+async def setup_logger(level: Union[str, int] = "DEBUG"):
+    logging.basicConfig(handlers=[InterceptHandler()], level=logging.getLevelName(level))
     logger.disable("sqlalchemy.engine")
     logger.disable("aiogram.bot.api")
     logger.info('Logging is successfully configured')
