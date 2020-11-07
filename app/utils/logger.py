@@ -20,7 +20,7 @@ class InterceptHandler(logging.Handler):
         logger.opt(depth=depth, exception=record.exc_info).log(level, record.getMessage())
 
 
-async def setup_logger(*args, **kwargs):
-    logging.basicConfig(handlers=[InterceptHandler()], level=logging.INFO)
+async def setup_logger():
+    logging.basicConfig(handlers=[InterceptHandler()], level=0)
     logger.disable("sqlalchemy.engine.base")
     logger.info('Logging is successfully configured')

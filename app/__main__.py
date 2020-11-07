@@ -12,9 +12,9 @@ from app.models import base
 
 async def on_startup(dispatcher: Dispatcher):
     await utils.setup_logger()
-    await base.connect()
+    await base.connect(config.POSTGRES_URI)
     await utils.setup_default_commands(dispatcher)
-    await utils.notify_admins()
+    await utils.notify_admins(config.ADMINS_ID)
 
 
 async def on_shutdown(dispatcher: Dispatcher):

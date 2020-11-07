@@ -6,7 +6,6 @@ import sqlalchemy as sa
 from loguru import logger
 from sqlalchemy import Column, DateTime
 
-from app import config
 from app.misc import db
 
 
@@ -35,8 +34,8 @@ class TimedBaseModel(BaseModel):
                         server_default=db.func.now())
 
 
-async def connect():
-    await db.set_bind(config.POSTGRES_URI)
+async def connect(postgres_uri):
+    await db.set_bind(postgres_uri)
     logger.info('PostgreSQL is successfully configured')
 
 
