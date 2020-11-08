@@ -4,7 +4,7 @@
 
 ### Poetry
 
-**_Make sure you have installed [poetry](https://python-poetry.org/docs/)._**
+**_Make sure you have installed [poetry](https://python-poetry.org/docs/#installation)._**
 
 1. Rename `.env.dist` to `.env` and fill in your Redis, Postgres credentials and a bot token.
 
