@@ -1,11 +1,9 @@
 FROM python:3.8-slim-buster
-
-RUN mkdir /src
+RUN apt-get update; apt-get install -y curl && mkdir /src
 WORKDIR /src
 ENV PYTHONPATH "${PYTHONPATH}:/src/"
 ENV PATH "/src/scripts:${PATH}"
-COPY requirements.txt /src
-RUN pip install -r requirements.txt
 COPY . /src
+RUN pip install poetry && poetry config virtualenvs.create false && poetry update && poetry shell
 RUN chmod +x /src/scripts/*
 ENTRYPOINT ["docker-entrypoint.sh"]
