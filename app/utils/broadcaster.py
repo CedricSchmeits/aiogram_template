@@ -9,8 +9,14 @@ from app.misc import bot
 
 
 class Broadcast:
-    def __init__(self, users: typing.List[int], text: str, disable_notification: bool = False,
-                 timeout: int = 0.02, logger=__name__):
+    def __init__(
+        self,
+        users: typing.List[int],
+        text: str,
+        disable_notification: bool = False,
+        timeout: int = 0.02,
+        logger=__name__,
+    ):
         self.users = users
         self.text = text
         self.disable_notification = disable_notification
@@ -24,13 +30,17 @@ class Broadcast:
 
     async def send_message(self, user_id: int) -> bool:
         try:
-            await bot.send_message(user_id, self.text, disable_notification=self.disable_notification)
+            await bot.send_message(
+                user_id, self.text, disable_notification=self.disable_notification
+            )
         except exceptions.BotBlocked:
             self.logger.debug(f"Target [ID:{user_id}]: blocked by user")
         except exceptions.ChatNotFound:
             self.logger.debug(f"Target [ID:{user_id}]: invalid user ID")
         except exceptions.RetryAfter as e:
-            self.logger.debug(f"Target [ID:{user_id}]: Flood limit is exceeded. Sleep {e.timeout} seconds.")
+            self.logger.debug(
+                f"Target [ID:{user_id}]: Flood limit is exceeded. Sleep {e.timeout} seconds."
+            )
             await sleep(e.timeout)
             return await self.send_message(user_id)  # Recursive call
         except exceptions.UserDeactivated:

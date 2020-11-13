@@ -28,10 +28,9 @@ class TimedBaseModel(BaseModel):
     __abstract__ = True
 
     created_at = Column(DateTime(True), server_default=db.func.now())
-    updated_at = Column(DateTime(True),
-                        default=db.func.now(),
-                        onupdate=db.func.now(),
-                        server_default=db.func.now())
+    updated_at = Column(
+        DateTime(True), default=db.func.now(), onupdate=db.func.now(), server_default=db.func.now()
+    )
 
 
 async def connect(postgres_uri):
