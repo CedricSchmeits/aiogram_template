@@ -1,8 +1,8 @@
-from app.misc import dp
 from loguru import logger
 
-from .is_reply import IsReplyFilter
+from app.misc import dp
 
+from .is_reply import IsReplyFilter
 
 if __name__ == "app.filters":
     text_messages = [

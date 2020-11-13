@@ -1,5 +1,5 @@
-from loguru import logger
 from aiogram.utils import exceptions
+from loguru import logger
 
 from app.misc import dp
 

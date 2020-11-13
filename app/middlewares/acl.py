@@ -3,8 +3,7 @@ from typing import Optional
 from aiogram import types
 from aiogram.dispatcher.middlewares import BaseMiddleware
 
-from app.models import User
-from app.models import Chat
+from app.models import Chat, User
 
 
 class ACLMiddleware(BaseMiddleware):

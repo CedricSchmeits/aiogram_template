@@ -1,10 +1,10 @@
-from app.misc import dp
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from loguru import logger
 
-from .throttling import ThrottlingMiddleware
-from .acl import ACLMiddleware
+from app.misc import dp
 
+from .acl import ACLMiddleware
+from .throttling import ThrottlingMiddleware
 
 if __name__ == "app.middlewares":
     dp.middleware.setup(ThrottlingMiddleware())

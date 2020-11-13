@@ -1,8 +1,8 @@
 from contextlib import suppress
 from typing import List
 
-from gino import UninitializedError
 import sqlalchemy as sa
+from gino import UninitializedError
 from loguru import logger
 from sqlalchemy import Column, DateTime
 

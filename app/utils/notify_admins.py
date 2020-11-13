@@ -1,6 +1,8 @@
 from typing import List
-from app.utils import Broadcast
+
 from loguru import logger
+
+from app.utils import Broadcast
 
 
 async def notify_admins(admins: List[int]):

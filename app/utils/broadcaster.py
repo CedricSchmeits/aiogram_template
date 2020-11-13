@@ -1,8 +1,9 @@
 import asyncio
-import typing
-from aiogram.utils import exceptions
 import logging
+import typing
 from asyncio import sleep
+
+from aiogram.utils import exceptions
 
 from app.misc import bot
 

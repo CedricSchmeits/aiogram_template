@@ -1,8 +1,9 @@
 from __future__ import annotations
-from sqlalchemy.sql import expression, Select
 
-from app.models.base import BaseModel, TimedBaseModel
+from sqlalchemy.sql import Select, expression
+
 from app.misc import db
+from app.models.base import BaseModel, TimedBaseModel
 
 
 class User(TimedBaseModel):
