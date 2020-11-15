@@ -74,7 +74,7 @@ docker-logs:
 # Application in Docker
 # =================================================================================================
 
-app-create: docker-build docker-stop docker-up
+app-create: docker-build app-start
 
 app-logs:
 	$(MAKE) docker-logs args="bot"
