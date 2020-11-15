@@ -125,15 +125,15 @@ All commands are in the `Makefile` and are used by `make [options] [command] [va
 
 `docker-build` — is the same as `docker-compose build`
 
-`docker-up-dependences`
+`docker-up-dependencies` — up dependencies in docker-compose
 
-`docker-up`
+`docker-up` — up the app with its dependencies
 
 `docker-stop` — is the same as `docker-compose stop`
 
 `docker-down` — is the same as `docker-compose down`
 
-`docker-destroy`
+`docker-destroy` — destroy application
 
-`docker-logs`
+`docker-logs` — show application log
 </details>

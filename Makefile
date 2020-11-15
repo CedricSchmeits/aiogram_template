@@ -52,7 +52,7 @@ docker-ps:
 docker-build:
 	docker-compose build
 
-docker-up-dependences:
+docker-up-dependencies:
 	docker-compose up -d redis db
 
 docker-up:
