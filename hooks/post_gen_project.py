@@ -15,5 +15,5 @@ if __name__ == '__main__':
         remove_file('Makefile')
 
     print("Edit .env file before start")
-    print("Create poetry environment by command:\n    poetry update")
+    print("Create poetry environment by command:\n    poetry install")
     print("The project is successfully created!")
