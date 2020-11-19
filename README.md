@@ -17,9 +17,17 @@ Template based on [Forden's template](https://github.com/Forden/aiogram-bot-temp
     cookiecutter https://github.com/0Kit/aiogram_template.git
     ```
 
-3. Make changes to the project
+3. Create an environment
+    
+    _Make sure you have installed [poetry](https://python-poetry.org/docs/#installation)_
+    
+    ```commandline
+    poetry install
+    ```
 
-4. Make migrations _(Choose one of the options)_
+4. Make changes to the project
+
+5. Make migrations _(Choose one of the options)_
 
     **Using make**
 
@@ -29,11 +37,10 @@ Template based on [Forden's template](https://github.com/Forden/aiogram-bot-temp
 
     **Using poetry**
     
-    _Make sure you have installed [poetry](https://python-poetry.org/docs/#installation)_
     ```commandline
     poetry run alembic revision --autogenerate -m init 
     ```
-5. Run project _(Choose one of the options)_
+6. Run project _(Choose one of the options)_
     
     **In docker container(using make)**
     
@@ -49,8 +56,6 @@ Template based on [Forden's template](https://github.com/Forden/aiogram-bot-temp
     ```
    
    **In your system**
-   
-   _Make sure you have installed [poetry](https://python-poetry.org/docs/#installation)_
    
    ```commandline
    python3 -m app
