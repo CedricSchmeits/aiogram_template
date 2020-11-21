@@ -14,6 +14,5 @@ if __name__ == '__main__':
     if '{{ cookiecutter.add_makefile }}' != 'y':
         remove_file('Makefile')
 
-    print("Edit .env file before start")
-    print("Create poetry environment by command:\n    poetry install")
-    print("The project is successfully created!")
+    print("\nYou can see guide at the https://github.com/0Kit/aiogram_template/blob/cookiecutter/README.md")
+    print("Project {{ cookiecutter.project_name }} was successfully created\n")
