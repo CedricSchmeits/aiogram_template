@@ -1,8 +1,8 @@
 {
-  "full_name": "Forzend Mainer",
-  "github_username": "0Kit",
   "project_name": "telegram_bot",
   "version": "0.1.0",
+  "full_name": "Forzend Mainer",
+  "github_username": "0Kit",
   "add_makefile": "y",
   "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"]
 }
