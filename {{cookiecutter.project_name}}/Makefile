@@ -1,3 +1,4 @@
+{% if cookiecutter.use_make == "y" %}
 include .env
 
 
@@ -86,3 +87,4 @@ app-down: docker-down
 app-start: docker-stop docker-up
 
 app-destroy: docker-destroy
+{% endif %}
