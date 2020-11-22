@@ -1,4 +1,5 @@
 import os
+import shutil
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
@@ -10,16 +11,25 @@ SUCCESS = "\x1b[1;32m[SUCCESS]: "
 ERROR = "\033[31m[ERROR]: "
 
 
-def remove_file(filepath):
-    os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+def remove(name: str):
+    target = os.path.join(PROJECT_DIRECTORY, name)
+    if os.path.isfile(target):
+        os.remove(target)
+    else:
+        shutil.rmtree(target)
 
 
 if __name__ == '__main__':
     if '{{ cookiecutter.open_source_license }}' == 'Not open source':
-        remove_file('LICENSE')
+        remove('LICENSE')
 
     if '{{ cookiecutter.add_makefile }}' != 'y':
-        remove_file('Makefile')
+        remove('Makefile')
+
+    if '{{ cookiecutter.use_docker }}' != 'y':
+        remove('Dockerfile')
+        remove('docker-compose.yml')
+        remove('scripts')
 
     print(HINT, "\nYou can see guide at the https://github.com/0Kit/aiogram_template/blob/cookiecutter/README.md",
           TERMINATOR)
