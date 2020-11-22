@@ -11,7 +11,7 @@ from app.misc import bot
 class Broadcast:
     def __init__(
         self,
-        users: typing.Option[typing.List[int], typing.List[str], int, str],
+        users: typing.Union[typing.List[int], typing.List[str], int, str],
         text: str,
         disable_notification: bool = False,
         timeout: int = 0.02,
