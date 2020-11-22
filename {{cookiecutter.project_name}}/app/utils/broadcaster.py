@@ -11,7 +11,7 @@ from app.misc import bot
 class Broadcast:
     def __init__(
         self,
-        users: typing.Option[typing.List[int], typing.List[str], int, str],
+        users: typing.Optional[typing.List[int], typing.List[str], int, str],
         text: str,
         disable_notification: bool = False,
         timeout: int = 0.02,
@@ -31,7 +31,7 @@ class Broadcast:
 
         self.logger = logger
 
-    async def send_message(self, user_id: int) -> bool:
+    async def send_message(self, user_id: typing.Union[int, str]) -> bool:
         try:
             await bot.send_message(
                 user_id, self.text, disable_notification=self.disable_notification
