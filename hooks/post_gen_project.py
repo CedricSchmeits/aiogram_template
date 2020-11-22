@@ -21,12 +21,15 @@ def remove(name: str):
 
 if __name__ == '__main__':
     if '{{ cookiecutter.open_source_license }}' == 'Not open source':
+        print(WARNING + 'open_source_license=Not open source')
         remove('LICENSE')
 
-    if '{{ cookiecutter.add_makefile }}' != 'y':
+    if '{{ cookiecutter.use_make }}' != 'y':
+        print(WARNING + 'add_makefile=False')
         remove('Makefile')
 
     if '{{ cookiecutter.use_docker }}' != 'y':
+        print(WARNING + 'use_docker=False')
         remove('Dockerfile')
         remove('docker-compose.yml')
         remove('scripts')
